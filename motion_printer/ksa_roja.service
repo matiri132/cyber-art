@@ -1,0 +1,12 @@
+[Unit]
+Description=Automated Printer by Motion
+After=cups.service
+[Service]
+ExecStartPre=motion -b
+ExecStart=/usr/local/bin/motion_printer.sh 2
+ExecStop=motion stop
+Restart=always
+User=root
+Group=root
+[Install]
+WantedBy=default.target
